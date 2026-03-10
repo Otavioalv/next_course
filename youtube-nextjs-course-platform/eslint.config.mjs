@@ -5,6 +5,17 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+
+   {
+    // files: ["**/*.{js,mjs,cjs,ts,tsx}"],
+    rules: {
+      "semi": ["error", "always"],
+      "no-extra-semi": "error",
+      // Garante que o TypeScript também valide o ponto e vírgula
+      // "@typescript-eslint/semi": ["error",  "always"]
+    },
+   },
+   
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

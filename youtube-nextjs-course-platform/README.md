@@ -1,2 +1,2 @@
-# Projeto baseado em um corso de next
+# Projeto baseado em um curso de next
 
