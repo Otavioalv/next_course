@@ -12,11 +12,11 @@ export default function PageHome() {
   return (
     <main className="mt-8 flex justify-center">
       <div
-          className="mx-auto max-w-[880px]"
+          className="max-w-full min-[880px]:max-w-[880px]"
       >
           <Section
               title="Todos os cursos"
-              variant="grid"
+              variant="h-list"
               items={[
                 {
                   description: "Aprenda a programar do zero com o curso de HTML e CSS, onde você vai criar seu primeiro site e entender os fundamentos da web.",
