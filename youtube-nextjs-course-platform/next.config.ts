@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        // port: '',
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        // pathname: '/account123/**',
+      }
+    ]
+  }
 };
 
 export default nextConfig;
