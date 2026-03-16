@@ -59,7 +59,7 @@ export const Section = ({title, items, variant="grid"}: ISectionProps) => {
                     <button 
                         disabled={scrollAt === 'start'}
                         onClick={() => handleScroll(-300)}
-                        className="w-14 h-14 bg-primary rounded-full flex items-center justify-center sticky my-auto left-0 -ml-14 disabled:opacity-0 transition-opacity active:opacity-80"
+                        className="w-14 h-14 bg-primary rounded-full items-center justify-center sticky my-auto left-0 -ml-14 disabled:opacity-0 transition-opacity active:opacity-80 hidden sm:flex"
                     >
                         <MdKeyboardArrowLeft size={32}/>
                     </button>
@@ -80,7 +80,7 @@ export const Section = ({title, items, variant="grid"}: ISectionProps) => {
                     <button 
                         disabled={scrollAt === 'end'}
                         onClick={() => handleScroll(300)}
-                        className="w-14 h-14 bg-primary rounded-full flex items-center justify-center sticky my-auto right-0 -ml-14 disabled:opacity-0 transition-opacity active:opacity-80"
+                        className="w-14 h-14 bg-primary rounded-full items-center justify-center sticky my-auto right-0 -ml-14 disabled:opacity-0 transition-opacity active:opacity-80 hidden sm:flex"
                     >
                         <MdKeyboardArrowRight size={32}/>
                     </button>
