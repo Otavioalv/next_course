@@ -1,5 +1,6 @@
 import { Class } from "@/src/components/course-content/components/Class";
 import { ClassGroup } from "@/src/components/course-content/components/ClassGroup";
+import { CourseContent } from "@/src/components/course-content/CourseContent";
 import { CourseHeader } from "@/src/components/course-header/CourseHeader";
 import { StartCourse } from "@/src/components/StartCourse";
 import { Metadata } from "next";
@@ -39,16 +40,38 @@ export default async function PageCourseDetai ({params}: Props) {
                         imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
                     />
                 </div>
-                <div className="flex-[2] flex flex-col gap-4">
+                <div className="flex-[2] flex flex-col gap-12">
                     <CourseHeader/>
                     
-                    <ClassGroup
-                        title="titulo do modulo"
-                        courseId="sdiojsadi"
-                        classes={[
+                    <CourseContent
+                        classGroups={[
                             {
-                                id: "siofdjdso",
-                                title: "tutulo da aula"
+                                courseId: "siodfjasd",
+                                title: "Titulo do curso",
+                                classes: [
+                                    {
+                                        id: "asoid",
+                                        title: "titulo do curso"
+                                    },
+                                    {
+                                        id: "asoidsdf",
+                                        title: "titulo do curso"
+                                    }
+                                ],
+                            },
+                            {
+                                courseId: "siodfjasdsdf",
+                                title: "Titulo do curso 2",
+                                classes: [
+                                    {
+                                        id: "asoid",
+                                        title: "titulo do curso"
+                                    },
+                                    {
+                                        id: "asoidsdf",
+                                        title: "titulo do curso"
+                                    }
+                                ],
                             }
                         ]}
                     />
