@@ -40,8 +40,15 @@ export default async function PageCourseDetai ({params}: Props) {
                         imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
                     />
                 </div>
-                <div className="flex-[2] flex flex-col gap-12">
-                    <CourseHeader/>
+                <div className="flex-[2] flex flex-col gap-12 pb-12">
+                    
+                    <CourseHeader
+                        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis molestiae itaque quaerat veritatis ut accusamus est aperiam ducimus rerum amet natus corporis velit voluptatum, earum quas ea omnis optio eius?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea odio ipsa voluptas assumenda temporibus, vero, facilis iusto cumque, voluptatum accusantium similique a possimus modi cupiditate totam culpa neque numquam aspernatur?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum beatae iure illum, molestias soluta praesentium voluptatum culpa nemo eius aliquam enim a dicta autem nulla ipsam rem. Nobis, esse deleniti."
+                        numberOfClasses={48}
+                        title="Titulo do curso ou da playlist"
+                    />
                     
                     <CourseContent
                         classGroups={[
