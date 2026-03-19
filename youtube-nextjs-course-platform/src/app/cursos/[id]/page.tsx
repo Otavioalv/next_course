@@ -32,9 +32,22 @@ export default async function PageCourseDetai ({params}: Props) {
                 <StartCourse
                     idClass="123"
                     idCourse="123"
+                    title="Titulo"
                     imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
                 />
                 <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+                <CourseHeader/>
+
             </div>
         </main>
     );
