@@ -1,3 +1,4 @@
+import { Class } from "@/src/components/course-content/Class";
 import { CourseHeader } from "@/src/components/course-header/CourseHeader";
 import { StartCourse } from "@/src/components/StartCourse";
 import { Metadata } from "next";
@@ -39,17 +40,10 @@ export default async function PageCourseDetai ({params}: Props) {
                 </div>
                 <div className="flex-[2]">
                     <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
-                    <CourseHeader/>
+                    <Class
+                        playerUrl="/playes/{courseId}/{classId}"
+                        title="titulo da aula"
+                    />
                 </div>
             </div>
         </main>
