@@ -27,27 +27,30 @@ export default async function PageCourseDetai ({params}: Props) {
     return (
         <main className="mt-8 flex justify-center">
             <div
-                className="w-full max-w-[880px] px-2 flex flex-col gap-4"
+                className="w-full max-w-[880px] px-2 lg:px-0 flex flex-col  gap-4 md:flex-row-reverse"
             >
-                <StartCourse
-                    idClass="123"
-                    idCourse="123"
-                    title="Titulo"
-                    imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
-                />
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-                <CourseHeader/>
-
+                <div className="flex-1">
+                    <StartCourse
+                        idClass="123"
+                        idCourse="123"
+                        title="Titulo"
+                        imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
+                    />
+                </div>
+                <div className="flex-[2]">
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                    <CourseHeader/>
+                </div>
             </div>
         </main>
     );

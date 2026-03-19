@@ -24,7 +24,7 @@ export const StartCourse = ({
         <>
             <div 
                 ref={ref}
-                className="p-3 bg-paper rounded-md flex flex-col gap-4"> 
+                className="p-3 bg-paper rounded-md flex flex-col gap-4 md:sticky md:top-[104]"> 
                 <Link 
                     href={`/player/${idCourse}/${idClass}`}
                     style={{backgroundImage: `url(${imageUrl})`}}
@@ -37,9 +37,9 @@ export const StartCourse = ({
 
                 <Link 
                     href={`/player/${idCourse}/${idClass}`}
-                    className="bg-primary p-2 px-3 rounded text-center"
+                    className="bg-primary p-2 px-3 rounded text-center no-underline"
                 >
-                    começar curso
+                    Começar curso
                 </Link>
             </div>
 
