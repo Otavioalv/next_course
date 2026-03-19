@@ -1,4 +1,5 @@
-import { Class } from "@/src/components/course-content/Class";
+import { Class } from "@/src/components/course-content/components/Class";
+import { ClassGroup } from "@/src/components/course-content/components/ClassGroup";
 import { CourseHeader } from "@/src/components/course-header/CourseHeader";
 import { StartCourse } from "@/src/components/StartCourse";
 import { Metadata } from "next";
@@ -38,11 +39,18 @@ export default async function PageCourseDetai ({params}: Props) {
                         imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
                     />
                 </div>
-                <div className="flex-[2]">
+                <div className="flex-[2] flex flex-col gap-4">
                     <CourseHeader/>
-                    <Class
-                        playerUrl="/playes/{courseId}/{classId}"
-                        title="titulo da aula"
+                    
+                    <ClassGroup
+                        title="titulo do modulo"
+                        courseId="sdiojsadi"
+                        classes={[
+                            {
+                                id: "siofdjdso",
+                                title: "tutulo da aula"
+                            }
+                        ]}
                     />
                 </div>
             </div>
