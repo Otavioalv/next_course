@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Card } from "../components/card/Card";
-import { Section } from "../components/section/Section";
-import { KeepWatching } from "../components/section/KeepWatching";
+import { Card } from "../../components/card/Card";
+import { Section } from "../../components/section/Section";
+import { KeepWatching } from "../../components/section/KeepWatching";
 
 
 export const metadata: Metadata = {

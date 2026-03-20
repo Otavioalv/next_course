@@ -32,7 +32,7 @@ export default function RootLayout({ children }: TRootLayout) {
       <body
         className={nunito.className}
       >
-        <Header/>
+        {/* <Header/> */}
         {children}
       </body>
     </html>
