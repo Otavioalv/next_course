@@ -1,3 +1,4 @@
+import { PlayerHeader } from "@/src/components/player";
 
 interface IPagePlayerProps {
     params: {
@@ -13,6 +14,10 @@ export default async function PagePlayer({
 
     return (
         <>
+            <PlayerHeader
+                title="titulo da aula"
+                subtitle="descriçaõ aula"
+            />
             Player {courseId} {classId}
         </>
     );
