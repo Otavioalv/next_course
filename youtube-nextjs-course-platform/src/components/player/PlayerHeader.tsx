@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MdHome } from "react-icons/md"
+import { MdHome } from "react-icons/md";
 
 
 interface IPlayerHeaderProps {
