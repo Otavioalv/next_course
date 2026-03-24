@@ -182,10 +182,14 @@ export default function PagePlayer({
                     />
                 </div>
 
-                <div className="flex flex-1">
-                    <PlayerVideoPlayer
-                        videoId="bP47qRVRqQs"
-                    />
+                <div className="flex-1">
+                    <div
+                        className="aspect-video"
+                    >
+                        <PlayerVideoPlayer
+                            videoId="bP47qRVRqQs"
+                        />
+                    </div>
                 </div>
             </div>
         </main>

@@ -18,6 +18,10 @@ export const PlayerVideoPlayer = ({
     return (
         <>
             <ReactPlayer 
+                height={'100%'}
+                width={'100%'}
+                playing={true}
+                controls={true}
                 src={`https://www.youtube.com/watch?v=${videoId}`}
             />
         </>
