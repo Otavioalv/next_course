@@ -16,18 +16,93 @@ export default function PagePlayer({
     const { classId, courseId } = use(params);
 
     return (
-        <main className="flex flex-col gap-2">
+        <main className="flex flex-col gap-2 h-screen">
             <PlayerHeader
                 title="titulo da aula"
                 subtitle="descrição aula"
             />
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 h-[calc(100vh-74px)]"> 
                 <div className="w-96">
                     <PlayerPlaylist
                         playingClassId={classId}
                         playingCourseId={courseId}
                         classGroups={[ 
+                            {
+                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                classes: [
+                                    {
+                                        title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: true,
+                                        classId: "1Loremipsum", 
+                                    },
+                                    {
+                                        title: "2Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: false,
+                                        classId: "2Loremipsum", 
+                                    },
+                                    {
+                                        title: "3Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: false,
+                                        classId: "3Loremipsum", 
+                                    },
+                                    {
+                                        title: "4Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: true,
+                                        classId: "4Loremipsum", 
+                                    }
+                                ],
+                            },
+                            {
+                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                classes: [
+                                    {
+                                        title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: true,
+                                        classId: "1Loremipsum", 
+                                    },
+                                    {
+                                        title: "2Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: false,
+                                        classId: "2Loremipsum", 
+                                    },
+                                    {
+                                        title: "3Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: false,
+                                        classId: "3Loremipsum", 
+                                    },
+                                    {
+                                        title: "4Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: true,
+                                        classId: "4Loremipsum", 
+                                    }
+                                ],
+                            },
+                            {
+                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                classes: [
+                                    {
+                                        title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: true,
+                                        classId: "1Loremipsum", 
+                                    },
+                                    {
+                                        title: "2Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: false,
+                                        classId: "2Loremipsum", 
+                                    },
+                                    {
+                                        title: "3Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: false,
+                                        classId: "3Loremipsum", 
+                                    },
+                                    {
+                                        title: "4Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
+                                        done: true,
+                                        classId: "4Loremipsum", 
+                                    }
+                                ],
+                            },
                             {
                                 title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
                                 classes: [
