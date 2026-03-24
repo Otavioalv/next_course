@@ -1,7 +1,7 @@
 'use client';
 
 import { use } from "react"; // 1. Importe o hook use do React
-import { PlayerClass, PlayerClassGroup, PlayerHeader, PlayerPlaylist } from "@/src/components/player";
+import { PlayerClass, PlayerClassGroup, PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from "@/src/components/player";
 
 interface IPagePlayerProps {
     params: Promise<{
@@ -183,7 +183,9 @@ export default function PagePlayer({
                 </div>
 
                 <div className="flex flex-1">
-                    Player
+                    <PlayerVideoPlayer
+                        videoId="bP47qRVRqQs"
+                    />
                 </div>
             </div>
         </main>
