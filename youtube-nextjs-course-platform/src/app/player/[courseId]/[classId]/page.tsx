@@ -184,10 +184,11 @@ export default function PagePlayer({
 
                 <div className="flex-1">
                     <div
-                        className="aspect-video"
+                        className="aspect-video relative"
                     >
                         <PlayerVideoPlayer
                             videoId="bP47qRVRqQs"
+                            onPlayNext={() => console.log("next on play")}
                         />
                     </div>
                 </div>
