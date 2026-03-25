@@ -1,7 +1,7 @@
 'use client';
 
 import { use } from "react"; // 1. Importe o hook use do React
-import { PlayerClass, PlayerClassDetails, PlayerClassGroup, PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from "@/src/components/player";
+import { PlayerClassDetails, PlayerHeader, PlayerPlaylist } from "@/src/components/player";
 
 interface IPagePlayerProps {
     params: Promise<{
