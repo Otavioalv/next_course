@@ -17,7 +17,7 @@ export default function PagePlayer({
 
     const classGroups = [ 
                             {
-                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                title: "1titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
                                 classes: [
                                     {
                                         title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
@@ -42,7 +42,7 @@ export default function PagePlayer({
                                 ],
                             },
                             {
-                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                title: "2titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
                                 classes: [
                                     {
                                         title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
@@ -67,7 +67,7 @@ export default function PagePlayer({
                                 ],
                             },
                             {
-                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                title: "21titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
                                 classes: [
                                     {
                                         title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
@@ -92,7 +92,7 @@ export default function PagePlayer({
                                 ],
                             },
                             {
-                                title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
+                                title: "4titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
                                 classes: [
                                     {
                                         title: "1Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
@@ -117,7 +117,7 @@ export default function PagePlayer({
                                 ],
                             },
                             {
-                                title: "2 titulo da aula",
+                                title: "5 titulo da aula",
                                 classes: [
                                     {
                                         title: "5Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
@@ -142,7 +142,7 @@ export default function PagePlayer({
                                 ],
                             },
                             {
-                                title: "3 titulo da aula",
+                                title: "6 titulo da aula",
                                 classes: [
                                     {
                                         title: "9Loremipsum dolor sit amet consectetur adipisicing elit. Nesciunt, saepe doloribus! Ipsam voluptate consectetur, ex facilis at optio, eaque debitis incidunt tempora alias deleniti repellat, rerum saepe laboriosam omnis aut. Loremipsum dolor sit amet, consectetur adipisicing elit. Non inventore explicabo amet in deleniti impedit, ipsam quaerat error eaque at eum iusto vitae doloribus tenetur voluptatum repellendus odio. Error, doloribus!",
@@ -188,6 +188,10 @@ export default function PagePlayer({
                     playingClassId={classId}
                     playingCourseId={courseId}
                     classGroups={classGroups}
+                    classItem={{
+                        description: "Descriçãoi da aula \nteste \n kkk \ntes ts \n\n  sdiofj\n https://tailwindcss.com/docs/white-space",
+                        title: "titulo da aula"
+                    }}
                     course={{
                         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium labore quae dolor? Earum cupiditate itaque vitae! Maiores qui dolore, officia tenetur, corporis consequuntur in esse vero rerum dolorum odio accusamus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod harum dignissimos, ipsam officiis, quia exercitationem obcaecati adipisci ipsa maiores temporibus corrupti, doloribus ducimus dolore cupiditate perferendis corporis vero animi mollitia?",
                         numberOfClasses: 123,

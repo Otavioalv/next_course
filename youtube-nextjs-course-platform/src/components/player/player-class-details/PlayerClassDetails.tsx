@@ -6,9 +6,11 @@ import { PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
 import { useRouter } from 'next/navigation';
 import * as Tabs from "@radix-ui/react-tabs";
 import { CourseHeader, ICourseHeaderProps } from "../../course-header/CourseHeader";
+import { IPlayerClassHeaderProps, PlayerClassHeader } from "./components/PlayerClassHeader";
 
 interface IPlayerClassDetailsProps {
     course: ICourseHeaderProps,
+    classItem: IPlayerClassHeaderProps,
     playingClassId: string,
     playingCourseId: string,
     classGroups: Pick<IPlayerClassGroupProps, 'title' | 'classes'>[],
@@ -19,6 +21,7 @@ export const PlayerClassDetails =  ({
     playingClassId,
     playingCourseId,
     classGroups,
+    classItem,
     course,
 }: IPlayerClassDetailsProps) => {
     const router = useRouter();
@@ -34,7 +37,7 @@ export const PlayerClassDetails =  ({
     }, [classGroups, playingClassId]);
 
     return (
-        <div className="flex-1 overflow-auto pb-10">
+        <div className="flex-1 overflow-auto">
             <div
                 className="aspect-video relative"
             >
@@ -65,33 +68,35 @@ export const PlayerClassDetails =  ({
                         value='course-comments'
                         className="p-2 flex items-center justify-center border-transparent data-[state=active]:border-primary border-b-4"
                     >
-                        curso
+                        Curso
                     </Tabs.Trigger>
                 </Tabs.List>
 
                 <Tabs.Content
                     value='class-details'
-                    className="flex flex-col"
+                    className="flex flex-col py-4"
                 >
-                    <CourseHeader
-                        {...course}
+                    <PlayerClassHeader
+                        {...classItem}
                     />
                 </Tabs.Content>
 
                 <Tabs.Content
                     value='class-comments'
+                    className="flex flex-col py-4"
                 >
                     Comentarios da aula
                 </Tabs.Content>
 
                 <Tabs.Content
                     value='course-comments'
+                    className="flex flex-col py-4"
                 >
-                    Detalhes do curso
+                    <CourseHeader
+                        {...course}
+                    />
                 </Tabs.Content>
-
             </Tabs.Root>
-            
         </div>
     );
 };
