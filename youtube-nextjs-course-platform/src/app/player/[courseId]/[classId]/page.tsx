@@ -166,8 +166,8 @@ export default function PagePlayer({
                                     }
                                 ],
                             }
-                    ];
-
+        ];
+            
     return (
         <main className="flex flex-col gap-2 h-screen">
             <PlayerHeader
@@ -189,7 +189,7 @@ export default function PagePlayer({
                     playingCourseId={courseId}
                     classGroups={classGroups}
                     classItem={{
-                        description: "Descriçãoi da aula \nteste \n kkk \ntes ts \n\n  sdiofj\n https://tailwindcss.com/docs/white-space",
+                        description: "Descriçãoi da aula \nteste \n kkk \ntes ts \n\n  sdiofj\n https://tailwindcss.com/docs/white-space\n 00:00 \n 00:50 \n 01:47\n  10:17",
                         title: "titulo da aula"
                     }}
                     course={{
