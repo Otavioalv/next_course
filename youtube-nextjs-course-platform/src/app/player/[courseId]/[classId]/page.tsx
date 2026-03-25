@@ -1,7 +1,7 @@
 'use client';
 
 import { use } from "react"; // 1. Importe o hook use do React
-import { PlayerClass, PlayerClassGroup, PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from "@/src/components/player";
+import { PlayerClass, PlayerClassDetails, PlayerClassGroup, PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from "@/src/components/player";
 
 interface IPagePlayerProps {
     params: Promise<{
@@ -15,19 +15,7 @@ export default function PagePlayer({
 }: IPagePlayerProps) {
     const { classId, courseId } = use(params);
 
-    return (
-        <main className="flex flex-col gap-2 h-screen">
-            <PlayerHeader
-                title="titulo da aula"
-                subtitle="descrição aula"
-            />
-
-            <div className="flex gap-2 h-[calc(100vh-74px)]"> 
-                <div className="w-96">
-                    <PlayerPlaylist
-                        playingClassId={classId}
-                        playingCourseId={courseId}
-                        classGroups={[ 
+    const classGroups = [ 
                             {
                                 title: "titulo da aula titulo da aula titulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aulatitulo da aula ",
                                 classes: [
@@ -178,20 +166,29 @@ export default function PagePlayer({
                                     }
                                 ],
                             }
-                        ]}
+                    ];
+
+    return (
+        <main className="flex flex-col gap-2 h-screen">
+            <PlayerHeader
+                title="titulo da aula"
+                subtitle="descrição aula"
+            />
+
+            <div className="flex gap-2 h-[calc(100vh-74px)]"> 
+                <div className="w-96">
+                    <PlayerPlaylist
+                        playingClassId={classId}
+                        playingCourseId={courseId}
+                        classGroups={classGroups}
                     />
                 </div>
 
-                <div className="flex-1">
-                    <div
-                        className="aspect-video relative"
-                    >
-                        <PlayerVideoPlayer
-                            videoId="bP47qRVRqQs"
-                            onPlayNext={() => console.log("next on play")}
-                        />
-                    </div>
-                </div>
+                <PlayerClassDetails
+                    playingClassId={classId}
+                    playingCourseId={courseId}
+                    classGroups={classGroups}
+                />
             </div>
         </main>
     );
