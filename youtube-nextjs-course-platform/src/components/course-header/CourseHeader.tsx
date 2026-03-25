@@ -5,7 +5,7 @@ import { CollapsibleText } from "./components/CollapsibleText";
 import { ContentCopy } from "./components/ContentCopy";
 
 
-interface ICourseHeaderProps {
+export interface ICourseHeaderProps {
     title: string,
     description: string,
     numberOfClasses: number, 

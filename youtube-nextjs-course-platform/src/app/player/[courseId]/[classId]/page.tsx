@@ -188,6 +188,11 @@ export default function PagePlayer({
                     playingClassId={classId}
                     playingCourseId={courseId}
                     classGroups={classGroups}
+                    course={{
+                        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium labore quae dolor? Earum cupiditate itaque vitae! Maiores qui dolore, officia tenetur, corporis consequuntur in esse vero rerum dolorum odio accusamus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod harum dignissimos, ipsam officiis, quia exercitationem obcaecati adipisci ipsa maiores temporibus corrupti, doloribus ducimus dolore cupiditate perferendis corporis vero animi mollitia?",
+                        numberOfClasses: 123,
+                        title: "titulo do curso "
+                    }}
                 />
             </div>
         </main>
