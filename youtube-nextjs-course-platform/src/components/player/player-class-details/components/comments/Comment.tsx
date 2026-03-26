@@ -14,9 +14,9 @@ export const Comment = () => {
                 width={40}
                 height={40}
                 draggable={false}
-                className="rounded-full bg-red-400 " 
+                className="rounded-full"
             />
-
+            
             <div className="bg-paper flex-1 flex flex-col gap-4 p-2 rounded-sm">
                 
                 <div className="flex gap-4 items-center">
