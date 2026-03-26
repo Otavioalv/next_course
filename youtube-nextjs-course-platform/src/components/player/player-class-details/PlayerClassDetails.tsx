@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import * as Tabs from "@radix-ui/react-tabs";
 import { CourseHeader, ICourseHeaderProps } from "../../course-header/CourseHeader";
 import { IPlayerClassHeaderProps, PlayerClassHeader } from "./components/PlayerClassHeader";
+import { Comments } from "./components/comments/Comments";
 
 interface IPlayerClassDetailsProps {
     course: ICourseHeaderProps,
@@ -78,7 +79,7 @@ export const PlayerClassDetails =  ({
 
                 <Tabs.Content
                     value='class-details'
-                    className="flex flex-col py-4"
+                    className="flex flex-col p-4"
                 >
                     <PlayerClassHeader
                         onTimeClick={seconds => playerVideoPlayerRef.current?.setProgress(seconds)}
@@ -88,14 +89,14 @@ export const PlayerClassDetails =  ({
 
                 <Tabs.Content
                     value='class-comments'
-                    className="flex flex-col py-4"
+                    className="flex flex-col p-4"
                 >
-                    Comentarios da aula
+                    <Comments/>
                 </Tabs.Content>
 
                 <Tabs.Content
                     value='course-comments'
-                    className="flex flex-col py-4"
+                    className="flex flex-col p-4"
                 >
                     <CourseHeader
                         {...course}
