@@ -1,8 +1,7 @@
-import { Class } from "@/src/components/course-content/components/Class";
-import { ClassGroup } from "@/src/components/course-content/components/ClassGroup";
 import { CourseContent } from "@/src/components/course-content/CourseContent";
 import { CourseHeader } from "@/src/components/course-header/CourseHeader";
 import { StartCourse } from "@/src/components/StartCourse";
+import { APIYouTube } from "@/src/shared/services/api-youtube";
 import { Metadata } from "next";
 
 
@@ -12,20 +11,34 @@ interface Props {
 
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
+    const { id } = await params;
+    const courseDetail = await APIYouTube.course.getById(id);
+
     return {
-        title: "Codarse - Nome do curso",
+        title: courseDetail.title,
+        description: courseDetail.description,
+        openGraph: {
+            locale: 'pt-BR',
+            type: 'video.other',
+            title: courseDetail.title,
+            description: courseDetail.description,
+            videos: courseDetail.classGroups
+                .reduce<string[]>((previous, current) => [
+                    ...previous,
+                    ...current.classes.map(classItem => `https://codarse.com/player/${current.courseId}/${classItem.id}`),
+                ], [])
+        }
     };
 }
 
 
-// export const metadata: Metadata = {
-//   title: "Codarse - Nome do curso",
-// };
-
-
-export default async function PageCourseDetai ({params}: Props) {
+export default async function PageCourseDetail({params}: Props) {
 
     const { id } = await params;
+
+    const courseDetail = await APIYouTube.course.getById(id);
+
+    const firstClass = courseDetail.classGroups.at(0)?.classes.at(0);
 
     return (
         <main className="mt-8 flex justify-center">
@@ -33,54 +46,25 @@ export default async function PageCourseDetai ({params}: Props) {
                 className="w-full max-w-[880px] px-2 lg:px-0 flex flex-col  gap-4 md:flex-row-reverse"
             >
                 <div className="flex-1">
-                    <StartCourse
-                        idClass="123"
-                        idCourse="123"
-                        title="Titulo"
-                        imageUrl="https://img.youtube.com/vi/UB1O30fR-EE/hqdefault.jpg"
-                    />
+                    {firstClass && (
+                        <StartCourse
+                            idClass={firstClass.id}
+                            title={firstClass.title}
+                            idCourse={courseDetail.id}
+                            imageUrl={courseDetail.image}
+                        />
+                    )}
                 </div>
                 <div className="flex-[2] flex flex-col gap-12 pb-12">
                     
                     <CourseHeader
-                        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis molestiae itaque quaerat veritatis ut accusamus est aperiam ducimus rerum amet natus corporis velit voluptatum, earum quas ea omnis optio eius?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea odio ipsa voluptas assumenda temporibus, vero, facilis iusto cumque, voluptatum accusantium similique a possimus modi cupiditate totam culpa neque numquam aspernatur?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum beatae iure illum, molestias soluta praesentium voluptatum culpa nemo eius aliquam enim a dicta autem nulla ipsam rem. Nobis, esse deleniti."
-                        numberOfClasses={48}
-                        title="Titulo do curso ou da playlist"
+                        title={courseDetail.title}
+                        description={courseDetail.description}
+                        numberOfClasses={courseDetail.numberOfClasses}
                     />
                     
                     <CourseContent
-                        classGroups={[
-                            {
-                                courseId: "siodfjasd",
-                                title: "Titulo do curso",
-                                classes: [
-                                    {
-                                        id: "asoid",
-                                        title: "titulo do curso"
-                                    },
-                                    {
-                                        id: "asoidsdf",
-                                        title: "titulo do curso"
-                                    }
-                                ],
-                            },
-                            {
-                                courseId: "siodfjasdsdf",
-                                title: "Titulo do curso 2",
-                                classes: [
-                                    {
-                                        id: "asoid",
-                                        title: "titulo do curso"
-                                    },
-                                    {
-                                        id: "asoidsdf",
-                                        title: "titulo do curso"
-                                    }
-                                ],
-                            }
-                        ]}
+                        classGroups={courseDetail.classGroups}
                     />
                 </div>
             </div>

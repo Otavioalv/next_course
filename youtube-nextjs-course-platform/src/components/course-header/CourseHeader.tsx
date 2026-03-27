@@ -11,6 +11,8 @@ export interface ICourseHeaderProps {
     numberOfClasses: number, 
 }
 
+const getUrl = () => typeof window !== 'undefined' ? window.location.href : '';
+
 export const CourseHeader = ({
     description,
     numberOfClasses, 
@@ -32,7 +34,7 @@ export const CourseHeader = ({
             <div className="flex gap-2 items-center">
                 <ContentCopy
                     title="Titulo"
-                    content={window.location.href}
+                    content={getUrl()}
                 >
                     <button
                         className="py-2 px-4 bg-paper rounded-full flex items-center gap-2"
