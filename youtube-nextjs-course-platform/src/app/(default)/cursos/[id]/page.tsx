@@ -9,6 +9,11 @@ interface Props {
     params: {id: string},
 }
 
+export async function generateStaticParams(): Promise<Props['params'][]> {
+    const courses = await APIYouTube.course.getAll();
+    return courses.map(course => ({id: course.id}));
+}
+
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
     const { id } = await params;
