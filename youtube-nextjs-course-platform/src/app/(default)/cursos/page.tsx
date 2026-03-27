@@ -17,8 +17,8 @@ export default async function PageCursos() {
             >
                  
                 <Section
-                    title="Todos os cursos"
                     variant="grid"
+                    title="Todos os cursos"
                     items={
                     courses.map(course => ({
                         description: course.description,
