@@ -1,18 +1,19 @@
-import { Comment } from "./Comment";
+import { Comment, ICommentProps } from "./Comment";
 
 
+interface ICommentsProps {
+    comments: ICommentProps[],
+}
 
-
-export const Comments = () => {
+export const Comments = ({comments}: ICommentsProps) => {
     return (
         <div className="flex flex-col gap-2">
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
+            {comments.map((comment) => (
+                <Comment 
+                    key={comment.author.userName}
+                    {...comment}
+                />
+            ))}
         </div>
     );
 }; 

@@ -91,7 +91,118 @@ export const PlayerClassDetails =  ({
                     value='class-comments'
                     className="flex flex-col p-4"
                 >
-                    <Comments/>
+                    <Comments   
+                        comments={[
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: [
+                                    {
+                                        author: {
+                                            image: "url do comentario",
+                                            userName: "nome do autor"
+                                        },
+                                        content: "Comentario",
+                                        likesCount: 123,
+                                        publishDate: "12/12/1231",
+                                    },
+                                    {
+                                        author: {
+                                            image: "url do comentario",
+                                            userName: "nome do autor"
+                                        },
+                                        content: "Comentario",
+                                        likesCount: 123,
+                                        publishDate: "12/12/1231",
+                                    },
+                                    {
+                                        author: {
+                                            image: "url do comentario",
+                                            userName: "nome do autor"
+                                        },
+                                        content: "Comentario",
+                                        likesCount: 123,
+                                        publishDate: "12/12/1231",
+                                    },
+                                    {
+                                        author: {
+                                            image: "url do comentario",
+                                            userName: "nome do autor"
+                                        },
+                                        content: "Comentario",
+                                        likesCount: 123,
+                                        publishDate: "12/12/1231",
+                                    },
+                                ]
+                            },
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: undefined
+                            },
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: undefined
+                            },
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: undefined
+                            },
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: undefined
+                            },
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: undefined
+                            },
+                            { 
+                                content: "comentario",
+                                likesCount: 2,
+                                publishDate: "data",
+                                author: {
+                                    image: "",
+                                    userName: "",
+                                },
+                                replies: undefined
+                            },
+
+                        ]}
+                    />
                 </Tabs.Content>
 
                 <Tabs.Content
