@@ -176,7 +176,7 @@ export default function PagePlayer({
             />
 
             <div className="flex gap-2 h-[calc(100vh-74px)]"> 
-                <div className="w-96">
+                <div className="max-w-96 hidden md:block">
                     <PlayerPlaylist
                         playingClassId={classId}
                         playingCourseId={courseId}

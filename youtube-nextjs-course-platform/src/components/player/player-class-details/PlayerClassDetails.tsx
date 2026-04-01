@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { IPlayerVideoPlayerRef, PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
 import { useRouter } from 'next/navigation';
@@ -8,6 +8,8 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { CourseHeader, ICourseHeaderProps } from "../../course-header/CourseHeader";
 import { IPlayerClassHeaderProps, PlayerClassHeader } from "./components/PlayerClassHeader";
 import { Comments } from "./components/comments/Comments";
+import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
+import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
 
 interface IPlayerClassDetailsProps {
     course: ICourseHeaderProps,
@@ -27,7 +29,23 @@ export const PlayerClassDetails =  ({
 }: IPlayerClassDetailsProps) => {
     const router = useRouter();
 
+    const [currentTab, setCurrentTab] = useState<string>("class-details");
+
     const playerVideoPlayerRef = useRef<IPlayerVideoPlayerRef | null>(null); 
+
+
+    useEffect(() => {
+        const matchMedia = window.matchMedia("min-width: 768px");
+
+        const handleMatchMedia = (e: MediaQueryListEvent) => {
+            if(e.matches && currentTab === "course-playlist") {
+                setCurrentTab("class-details");
+            }
+        };
+
+        matchMedia.addEventListener("change", handleMatchMedia);
+        return () => matchMedia.removeEventListener("change", handleMatchMedia);
+    }, [currentTab]);
 
 
     const nextClassId = useMemo(() => {
@@ -42,17 +60,36 @@ export const PlayerClassDetails =  ({
 
     return (
         <div className="flex-1 overflow-auto">
-            <div
-                className="aspect-video relative"
-            >
-                <PlayerVideoPlayer
-                    ref={playerVideoPlayerRef}
-                    videoId="bP47qRVRqQs"
-                    onPlayNext={() => nextClassId ? router.push(`/player/${playingCourseId}/${nextClassId}`) : {}}
-                />
+          
+
+            <div className="flex gap-2 p-2">
+                <div>
+                    <MdVisibility/>
+                    <span>
+                        visualizações
+                    </span>
+                </div>
+
+                <div>
+                    <MdThumbUp/>
+                    <span>
+                        curtidas
+                    </span>
+                </div>
+
+                <div>
+                    <MdComment/>
+                    <span>
+                        comentarios
+                    </span>
+                </div>
             </div>
 
-            <Tabs.Root defaultValue="class-details">
+
+            <Tabs.Root 
+                value={currentTab}
+                onValueChange={value => setCurrentTab(value)}
+            >
                 <Tabs.List className="flex gap-4 border-b border-b-paper">
 
                     <Tabs.Trigger
@@ -60,6 +97,13 @@ export const PlayerClassDetails =  ({
                         className="p-2 flex items-center justify-center border-transparent data-[state=active]:border-primary border-b-4"
                     >
                         Detalhes
+                    </Tabs.Trigger>
+                    
+                    <Tabs.Trigger
+                        value="course-playlist"
+                        className="p-2 flex items-center justify-center border-transparent data-[state=active]:border-primary border-b-4 md:hidden"
+                    >
+                        Conteudo do curso
                     </Tabs.Trigger>
 
                     <Tabs.Trigger
@@ -84,6 +128,17 @@ export const PlayerClassDetails =  ({
                     <PlayerClassHeader
                         onTimeClick={seconds => playerVideoPlayerRef.current?.setProgress(seconds)}
                         {...classItem}
+                    />
+                </Tabs.Content>
+
+                <Tabs.Content 
+                    value="course-playlist"
+                    className="flex flex-col p-4"
+                >
+                    <PlayerPlaylist
+                        playingClassId={playingClassId}
+                        playingCourseId={playingCourseId}
+                        classGroups={classGroups}
                     />
                 </Tabs.Content>
 
