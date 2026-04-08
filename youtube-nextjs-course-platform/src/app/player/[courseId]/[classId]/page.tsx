@@ -185,17 +185,22 @@ export default function PagePlayer({
                 </div>
 
                 <PlayerClassDetails
-                    playingClassId={classId}
-                    playingCourseId={courseId}
-                    classGroups={classGroups}
                     classItem={{
                         description: "Descriçãoi da aula \nteste \n kkk \ntes ts \n\n  sdiofj\n https://tailwindcss.com/docs/white-space\n 00:00 \n 00:50 \n 01:47\n  10:17",
-                        title: "titulo da aula"
+                        title: "titulo da aula",
+                        commentsCount: 129301,
+                        likesCount: 9182308921,
+                        viewsCount: 1,
+                        id: "iwojoisdfj",
+                        // playingClassId={classId},
                     }}
                     course={{
                         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium labore quae dolor? Earum cupiditate itaque vitae! Maiores qui dolore, officia tenetur, corporis consequuntur in esse vero rerum dolorum odio accusamus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod harum dignissimos, ipsam officiis, quia exercitationem obcaecati adipisci ipsa maiores temporibus corrupti, doloribus ducimus dolore cupiditate perferendis corporis vero animi mollitia?",
                         numberOfClasses: 123,
-                        title: "titulo do curso "
+                        title: "titulo do curso ",
+                        classGroups: classGroups,
+                        id: "qsidajffsidu",
+                        // playingCourseId={courseId}
                     }}
                 />
             </div>

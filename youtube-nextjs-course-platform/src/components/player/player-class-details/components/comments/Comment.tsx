@@ -1,7 +1,8 @@
+import { useMemo, useState } from "react";
+
+import { MdArrowDropDown, MdArrowDropUp, MdThumbUp } from "react-icons/md";
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
-import { useMemo, useState } from "react";
-import { MdArrowDropDown, MdArrowDropUp, MdThumbUp } from "react-icons/md";
 
 export interface ICommentProps {
     content: string,
@@ -51,7 +52,6 @@ export const Comment = ({
 
                         <span className="font-extrabold text-xs opacity-50">
                             {date}
-                            sdffg
                         </span>
 
                     </div>

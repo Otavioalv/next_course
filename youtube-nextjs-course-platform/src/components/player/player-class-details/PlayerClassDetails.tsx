@@ -1,29 +1,33 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
-import { IPlayerVideoPlayerRef, PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
-import { useRouter } from 'next/navigation';
-import * as Tabs from "@radix-ui/react-tabs";
-import { CourseHeader, ICourseHeaderProps } from "../../course-header/CourseHeader";
+
 import { IPlayerClassHeaderProps, PlayerClassHeader } from "./components/PlayerClassHeader";
-import { Comments } from "./components/comments/Comments";
-import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
+import { IPlayerVideoPlayerRef, PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
+import { CourseHeader, ICourseHeaderProps } from "../../course-header/CourseHeader";
+import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
+import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
+import { Comments } from "./components/comments/Comments";
+import { useRouter } from 'next/navigation';
+
+import * as Tabs from "@radix-ui/react-tabs";
+import Link from "next/link";
 
 interface IPlayerClassDetailsProps {
-    course: ICourseHeaderProps,
-    classItem: Omit<IPlayerClassHeaderProps, "onTimeClick">,
-    playingClassId: string,
-    playingCourseId: string,
-    classGroups: Pick<IPlayerClassGroupProps, 'title' | 'classes'>[],
-    
+    course: ICourseHeaderProps & {
+        classGroups: Pick<IPlayerClassGroupProps, 'title' | 'classes'>[],
+        id: string,
+    },
+    classItem: Omit<IPlayerClassHeaderProps, "onTimeClick"> & {
+        viewsCount: number,
+        likesCount: number,
+        commentsCount: number,
+        id: string,
+    },
 }
 
 export const PlayerClassDetails =  ({
-    playingClassId,
-    playingCourseId,
-    classGroups,
     classItem,
     course,
 }: IPlayerClassDetailsProps) => {
@@ -49,36 +53,50 @@ export const PlayerClassDetails =  ({
 
 
     const nextClassId = useMemo(() => {
-        const classes = classGroups.flatMap(classGroup => classGroup.classes);
-        const currentClassIndex = classes.findIndex(classItem => classItem.classId === playingClassId);
+        const classes = course.classGroups.flatMap(classGroup => classGroup.classes);
+        const currentClassIndex = classes.findIndex(cl => cl.classId === classItem.id);
         const nextClassIndex = currentClassIndex + 1;
         if(nextClassIndex === classes.length) {
             return undefined;
         }
         return classes[nextClassIndex].classId;
-    }, [classGroups, playingClassId]);
+    }, [classItem.id, course.classGroups]);
 
     return (
         <div className="flex-1 overflow-auto">
-          
+            <div>
+                <PlayerVideoPlayer
+                    videoId="iddovideo"
+                    ref={playerVideoPlayerRef}
+                    onPlayNext={() => nextClassId ? router.push(`/player/${course.id}/${nextClassId}`): {}}
+                />
+            </div>
 
-            <div className="flex gap-2 p-2">
-                <div>
+
+            <div className="flex gap-2 p-2 opacity-50">
+                <div className="flex gap-1 items-center">
                     <MdVisibility/>
+                    <span>{classItem.viewsCount}</span>
                     <span>
                         visualizações
                     </span>
                 </div>
 
-                <div>
+                <Link 
+                    href={`https://youtube.com/watch?v=${classItem.id}`} 
+                    target="_blank"
+                    className="flex gap-1 items-center"
+                >
                     <MdThumbUp/>
+                    <span>{classItem.likesCount}</span>
                     <span>
                         curtidas
                     </span>
-                </div>
+                </Link>
 
-                <div>
+                <div className="flex gap-1 items-center">
                     <MdComment/>
+                    <span>{classItem.commentsCount}</span>
                     <span>
                         comentarios
                     </span>
@@ -136,9 +154,9 @@ export const PlayerClassDetails =  ({
                     className="flex flex-col p-4"
                 >
                     <PlayerPlaylist
-                        playingClassId={playingClassId}
-                        playingCourseId={playingCourseId}
-                        classGroups={classGroups}
+                        playingClassId={classItem.id}
+                        playingCourseId={course.id}
+                        classGroups={course.classGroups}
                     />
                 </Tabs.Content>
 
@@ -147,116 +165,7 @@ export const PlayerClassDetails =  ({
                     className="flex flex-col p-4"
                 >
                     <Comments   
-                        comments={[
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: [
-                                    {
-                                        author: {
-                                            image: "url do comentario",
-                                            userName: "nome do autor"
-                                        },
-                                        content: "Comentario",
-                                        likesCount: 123,
-                                        publishDate: "12/12/1231",
-                                    },
-                                    {
-                                        author: {
-                                            image: "url do comentario",
-                                            userName: "nome do autor"
-                                        },
-                                        content: "Comentario",
-                                        likesCount: 123,
-                                        publishDate: "12/12/1231",
-                                    },
-                                    {
-                                        author: {
-                                            image: "url do comentario",
-                                            userName: "nome do autor"
-                                        },
-                                        content: "Comentario",
-                                        likesCount: 123,
-                                        publishDate: "12/12/1231",
-                                    },
-                                    {
-                                        author: {
-                                            image: "url do comentario",
-                                            userName: "nome do autor"
-                                        },
-                                        content: "Comentario",
-                                        likesCount: 123,
-                                        publishDate: "12/12/1231",
-                                    },
-                                ]
-                            },
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: undefined
-                            },
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: undefined
-                            },
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: undefined
-                            },
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: undefined
-                            },
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: undefined
-                            },
-                            { 
-                                content: "comentario",
-                                likesCount: 2,
-                                publishDate: "data",
-                                author: {
-                                    image: "",
-                                    userName: "",
-                                },
-                                replies: undefined
-                            },
-
-                        ]}
+                        comments={[]}
                     />
                 </Tabs.Content>
 
