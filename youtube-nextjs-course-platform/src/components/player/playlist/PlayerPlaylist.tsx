@@ -28,7 +28,7 @@ export const PlayerPlaylist = ({classGroups, playingClassId, playingCourseId}: I
             
             <ul className="overflow-auto">
                 {classGroups.map((cg, i) => (
-                    <li key={cg.title}>
+                    <li key={`${cg.title}-${i}`}>
                         <PlayerClassGroup
                             position={i + 1}
                             onToggle={() => setOpenedIndex(openedIndex === i ? undefined : i)}

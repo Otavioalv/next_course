@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 
 import * as Tabs from "@radix-ui/react-tabs";
 import Link from "next/link";
+import { ICommentProps } from "./components/comments/Comment";
 
 interface IPlayerClassDetailsProps {
     course: ICourseHeaderProps & {
@@ -25,11 +26,13 @@ interface IPlayerClassDetailsProps {
         commentsCount: number,
         id: string,
     },
+    comments:ICommentProps[]
 }
 
 export const PlayerClassDetails =  ({
     classItem,
     course,
+    comments,
 }: IPlayerClassDetailsProps) => {
     const router = useRouter();
 
@@ -165,7 +168,7 @@ export const PlayerClassDetails =  ({
                     className="flex flex-col p-4"
                 >
                     <Comments   
-                        comments={[]}
+                        comments={comments}
                     />
                 </Tabs.Content>
 

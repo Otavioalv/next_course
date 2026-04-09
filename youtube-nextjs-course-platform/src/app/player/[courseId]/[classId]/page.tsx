@@ -43,10 +43,14 @@ export async function generateMetadata({params}: IPagePlayerProps):Promise<Metad
 export default async function PagePlayer({
     params
 }: IPagePlayerProps) {
-    const { classId, courseId } = await params;
+    const { classId, courseId } = params;
     
     const courseDetails = await APIYouTube.course.getById(courseId);
     const classDetails = await APIYouTube.class.getById(classId);
+
+
+    const comments = await APIYouTube.comments.getAllByVideoId(classDetails.videoId);
+
 
     const classGroupsData: IPlayerPlaylistProps["classGroups"] = courseDetails.classGroups.map(classGroup => ({
         title: classGroup.title,
@@ -75,6 +79,7 @@ export default async function PagePlayer({
                 </div>
 
                 <PlayerClassDetails
+                    comments={comments}
                     classItem={{
                         description: classDetails.description,
                         title: classDetails.title,

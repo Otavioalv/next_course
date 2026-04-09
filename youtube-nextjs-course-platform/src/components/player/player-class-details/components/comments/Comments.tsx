@@ -1,7 +1,7 @@
 import { Comment, ICommentProps } from "./Comment";
 
 
-interface ICommentsProps {
+export interface ICommentsProps {
     comments: ICommentProps[],
 }
 

@@ -17,9 +17,9 @@ export const CourseContent = ({classGroups}: ICourseContent) => {
             <ul 
                 className="flex flex-col rounded-lg overflow-clip"
             >
-                {classGroups.map(classGroup => (
+                {classGroups.map((classGroup, i) => (
                         <li 
-                            key={classGroup.title}
+                            key={`${classGroup.title}-${i}`}
                             className="flex flex-col"
                         >
                             <ClassGroup
