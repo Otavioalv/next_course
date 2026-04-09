@@ -112,7 +112,56 @@ export const APIYouTube = {
             };
         },
     },
-    classes: {
+    class: {
+        getAllByCourseId: async (id: string) => {
+            const classes: youtube_v3.Schema$PlaylistItem[] = [];
+            let nextPageToken: string | undefined = undefined;
 
+            do {
+                await YoutubeApiClient.playlistItems
+                    .list({
+                        maxResults: 50,
+                        playlistId: id,
+                        part: ['snippet'],
+                        pageToken: nextPageToken,
+                    })
+                    .then(({data}) => {
+                        classes.push(...(data.items || []));
+                        nextPageToken = data.nextPageToken || undefined;
+                    });
+            } while(nextPageToken);
+
+            return classes.map(classItem => ({
+                courseId: id,
+                id: String(classItem.id),
+            }));
+        },
+        getById: async (id: string) => {
+            const {data: {items: [classItem] = []}} = await YoutubeApiClient.playlistItems.list(
+                {id: [id], part: ['contentDetails']},
+                {fetchImplementation: fetchWithNextConfig({revalidate: (60*60) * 24})}
+            );
+
+            const videoId = classItem.contentDetails?.videoId;
+            if(!videoId) throw new Error("Video id not found");
+
+            const {data: {items: [videoItem] = []}} = await YoutubeApiClient.videos.list({
+                id: [videoId],
+                maxResults: 1,
+                part: ['snippet', 'statistics'],
+            }, {fetchImplementation: fetchWithNextConfig({revalidate: (60*60) *48})});
+
+            if(!videoItem.snippet) throw new Error("Snippet not found");
+            if(!videoItem.statistics) throw new Error("Statistics not found");
+
+            return {
+                videoId,
+                title: String(videoItem.snippet.title),
+                description: String(videoItem.snippet.description),
+                viewsCount: Number(videoItem.statistics.viewCount),
+                likeCount: Number(videoItem.statistics.likeCount),
+                commentCount: Number(videoItem.statistics.commentCount),
+            };
+        },
     }
 };

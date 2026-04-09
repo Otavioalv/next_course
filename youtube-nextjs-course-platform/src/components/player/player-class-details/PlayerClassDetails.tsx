@@ -66,7 +66,7 @@ export const PlayerClassDetails =  ({
         <div className="flex-1 overflow-auto">
             <div>
                 <PlayerVideoPlayer
-                    videoId="iddovideo"
+                    videoId={classItem.id}
                     ref={playerVideoPlayerRef}
                     onPlayNext={() => nextClassId ? router.push(`/player/${course.id}/${nextClassId}`): {}}
                 />

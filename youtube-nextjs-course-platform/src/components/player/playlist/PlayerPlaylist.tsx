@@ -1,8 +1,10 @@
+'use client';
+
 import { useState } from "react";
 import { IPlayerClassGroupProps, PlayerClassGroup } from "./components/PlayerClassGroup";
 import { useRouter } from "next/navigation";
 
-interface IPlayerPlaylistProps {
+export interface IPlayerPlaylistProps {
     playingClassId: string, 
     playingCourseId: string,
     classGroups: Pick<IPlayerClassGroupProps, 'title' | 'classes'>[],
